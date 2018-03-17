@@ -17,6 +17,11 @@ var HeadlineSchema = new Schema({
         required: true,
         unique: true
     },
+    // url: {
+    //     type: String,
+    //     required: true
+    //     // unique: true
+    // },
     // boolean to flag headlines as saved
     saved: {
         type: Boolean,
@@ -24,9 +29,9 @@ var HeadlineSchema = new Schema({
         default: false
     },
     // This will save an array of comments' ObjectIds
-    comments:[{
+    notes:[{
         type: Schema.ObjectId,
-        ref:'Comment'
+        ref:'Note'
     }]
 });
 
