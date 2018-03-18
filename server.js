@@ -1,4 +1,5 @@
 
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
@@ -23,7 +24,7 @@ var db = require("./models/");
 var headlineRouter = require("./controllers/headline.js");
 var noteRouter = require("./controllers/note.js");
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 // Initialize Express
 var app = express();
@@ -59,13 +60,8 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-if(process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI), {
-    };
-}
-else {
-    mongoose.connect("mongodb://localhost:27017/NewsBlog");
-}
+var URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/NewsBlog';
+mongoose.connect(URI);
 
 
 // Listen on port 3000
