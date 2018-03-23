@@ -61,7 +61,7 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 var URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/NewsBlog';
-mongoose.connect(URI);
+mongoose.connect(URI, {});
 
 
 // Listen on port 3000
