@@ -40,7 +40,7 @@ var axios = require("axios");
             // Load that into cheerio and save it to $ for a shorthand selector
             var $ = cheerio.load(html);
             // Grab every part of the html that contains a separate article
-            $("div.card-panel > article").each(function(i, element) {
+            $("div.card-panel").each(function(i, element) {
 
                 // Save an empty result object
                 var result = {};
